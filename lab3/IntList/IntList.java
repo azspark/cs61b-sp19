@@ -29,7 +29,7 @@ public class IntList {
      * A List with null rest, and first = 0.
      */
     public IntList() {
-    /* NOTE: public IntList () { }  would also work. */
+        /* NOTE: public IntList () { }  would also work. */
         this(0, null);
     }
 
@@ -101,7 +101,10 @@ public class IntList {
         //TODO:  fill in method
         // One Silly Implementation
         if (A == null) {
-            return B;
+            if (B == null)
+                return new IntList();
+            else
+                return B;
         }
         IntList il = new IntList(A.first, null);
         IntList ilIter = il;
