@@ -101,10 +101,7 @@ public class IntList {
         //TODO:  fill in method
         // One Silly Implementation
         if (A == null) {
-            if (B == null)
-                return new IntList();
-            else
-                return B;
+            return B;
         }
         IntList il = new IntList(A.first, null);
         IntList ilIter = il;
@@ -127,6 +124,17 @@ public class IntList {
 //        }
     }
 
+    public static IntList reverse(IntList A) {
+        if (A == null)
+            return null;
+        IntList rList = new IntList(A.first, null);
+        A = A.rest;
+        while (A != null) {
+            rList = new IntList(A.first, rList);
+            A = A.rest;
+        }
+        return rList;
+    }
 
 
 
