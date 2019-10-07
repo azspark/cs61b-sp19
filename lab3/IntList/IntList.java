@@ -125,15 +125,20 @@ public class IntList {
     }
 
     public static IntList reverse(IntList A) {
-        if (A == null)
-            return null;
-        IntList rList = new IntList(A.first, null);
-        A = A.rest;
-        while (A != null) {
-            rList = new IntList(A.first, rList);
-            A = A.rest;
+        if (A == null || A.rest == null)
+            return A;
+
+        IntList iter = A;
+        IntList last = null;
+        while(iter.rest != null) {
+            IntList temp = iter.rest;
+            iter.rest = last;
+            last = iter;
+            iter =  temp;
         }
-        return rList;
+        iter.rest = last;
+        A = iter;
+        return A;
     }
 
 
