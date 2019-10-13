@@ -16,13 +16,13 @@ public class ArrayDeque<T> {
         nextFirst = 0;
         nextLast = 1;
         size = 0;
-        for(int i = 0; i < other.size(); i++) {
-            addLast((T)other.get(i));
+        for (int i = 0; i < other.size(); i++) {
+            addLast((T) other.get(i));
         }
     }
 
     public T get(int index) {
-        if(index < 0 || index >= size) {
+        if (index < 0 || index >= size) {
             return null;
         }
         int virtualIndex = index + 1 + nextFirst;
@@ -68,34 +68,38 @@ public class ArrayDeque<T> {
         }
     }
 
-    public void removeFirst() {
-        if(size == 0){
-            return;
+    public T removeFirst() {
+        if (size == 0){
+            return null;
         }
-        if(nextFirst != items.length-1){
+        T first = get(0);
+        if (nextFirst != items.length - 1) {
             nextFirst += 1;
         } else {
             nextFirst = 0;
         }
         size -= 1;
-        if(size < items.length*0.25) {
+        if (size < items.length*0.25) {
             resize(size * 2);
         }
+        return first;
     }
 
-    public void removeLast() {
-        if(size ==0){
-            return;
+    public T removeLast() {
+        if (size ==0){
+            return null;
         }
-        if(nextLast != 0){
+        T last = get(size-1);
+        if (nextLast != 0){
             nextLast -= 1;
         } else {
             nextLast = items.length - 1;
         }
         size -= 1;
-        if(size < items.length*0.25) {
+        if (size < items.length*0.25) {
             resize(size * 2);
         }
+        return last;
     }
 
     private void resize(int targetSize) {
@@ -117,6 +121,10 @@ public class ArrayDeque<T> {
 
     public int getItemsLength() {
         return items.length;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
     }
 
 }
