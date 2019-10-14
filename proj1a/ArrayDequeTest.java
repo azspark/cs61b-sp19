@@ -27,13 +27,13 @@ public class ArrayDequeTest {
         }
     }
 
-    public static boolean checkProportional(ArrayDeque ad) {
-        boolean outcome  = ad.size() >= (ad.getItemsLength() *0.25);
-        if(!outcome) {
-            System.out.println("You have size length proportional problem!");
-        }
-        return outcome;
-    }
+//    public static boolean checkProportional(ArrayDeque ad) {
+//        boolean outcome  = ad.size() >= (ad.getItemsLength() *0.25);
+//        if(!outcome) {
+//            System.out.println("You have size length proportional problem!");
+//        }
+//        return outcome;
+//    }
 
     public static boolean checkIntArrayEqual(ArrayDeque ad, int[] arrays) {
         boolean outcome = true;
@@ -77,7 +77,7 @@ public class ArrayDequeTest {
         }
         passed = passed && checkSize(5, ad1.size());
         passed = passed && checkIntArrayEqual(ad1, a1);
-        passed = passed && checkProportional(ad1);
+//        passed = passed && checkProportional(ad1);
 
         for(int i = 0; i < 5; i++) {
             ad1.addFirst(9);
@@ -86,7 +86,7 @@ public class ArrayDequeTest {
         passed = passed && checkSize(10, ad1.size());
         int[] a1Added = new int[]{9, 9, 9, 9, 9, 1, 2, 3, 4, 5};
         passed = passed && checkIntArrayEqual(ad1, a1Added);
-        passed = passed && checkProportional(ad1);
+//        passed = passed && checkProportional(ad1);
 
         int[] a2 = new int[300];
         ArrayDeque<Integer> ad2 = new ArrayDeque<>();
@@ -96,7 +96,7 @@ public class ArrayDequeTest {
         }
         passed = passed && checkSize(300, ad2.size());
         passed = passed && checkIntArrayEqual(ad2, a2);
-        passed = passed && checkProportional(ad2);
+//        passed = passed && checkProportional(ad2);
 
         printTestStatus(passed);
     }
@@ -111,7 +111,7 @@ public class ArrayDequeTest {
         ad1.removeLast();
         ad1.removeFirst();
         passed = passed && checkSize(3, ad1.size());
-        passed = passed && checkProportional(ad1);
+//        passed = passed && checkProportional(ad1);
         int[] expected1 = new int[]{2,3, 4};
         passed = passed && checkIntArrayEqual(ad1, expected1);
 
@@ -124,7 +124,7 @@ public class ArrayDequeTest {
         for (int i = 0; i < 120; i++) {
             ad2.removeLast();
             ad1.removeFirst();
-            passed = passed && checkProportional(ad2);
+//            passed = passed && checkProportional(ad2);
         }
         printTestStatus(passed);
     }
@@ -136,9 +136,9 @@ public class ArrayDequeTest {
             ad2.addLast(i);
         }
 
-        ArrayDeque<Integer> adCopy = new ArrayDeque<>(ad2);
-
-        passed = passed && checkArrayDequeEqual(ad2, adCopy);
+//        ArrayDeque<Integer> adCopy = new ArrayDeque<>(ad2);
+//
+//        passed = passed && checkArrayDequeEqual(ad2, adCopy);
         printTestStatus(passed);
     }
 

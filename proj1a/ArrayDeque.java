@@ -11,15 +11,15 @@ public class ArrayDeque<T> {
         size = 0;
     }
 
-    public ArrayDeque(ArrayDeque other) {
-        items = (T[]) new Object[4];
-        nextFirst = 0;
-        nextLast = 1;
-        size = 0;
-        for (int i = 0; i < other.size(); i++) {
-            addLast((T) other.get(i));
-        }
-    }
+//    public ArrayDeque(ArrayDeque other) {
+//        items = (T[]) new Object[4];
+//        nextFirst = 0;
+//        nextLast = 1;
+//        size = 0;
+//        for (int i = 0; i < other.size(); i++) {
+//            addLast((T) other.get(i));
+//        }
+//    }
 
     public T get(int index) {
         if (index < 0 || index >= size) {
@@ -121,12 +121,19 @@ public class ArrayDeque<T> {
         items = newItems;
     }
 
-    public int getItemsLength() {
-        return items.length;
-    }
+//    public int getItemsLength() {
+//        return items.length;
+//    }
 
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    public void printDeque() {
+        for (int i = 0; i < size; i++) {
+            System.out.print(get(i) + " ");
+        }
+        System.out.println();
     }
 
 }
