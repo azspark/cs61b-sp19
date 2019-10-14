@@ -1,3 +1,4 @@
+import java.util.Random;
 public class ArrayDequeTest {
     /* Utility method for printing out empty checks. */
     public static boolean checkEmpty(boolean expected, boolean actual) {
@@ -141,11 +142,47 @@ public class ArrayDequeTest {
 //        passed = passed && checkArrayDequeEqual(ad2, adCopy);
         printTestStatus(passed);
     }
+    private static int getRandomNumberInRange(int min, int max) {
+
+        if (min >= max) {
+            throw new IllegalArgumentException("max must be greater than min");
+        }
+
+        Random r = new Random();
+        return r.nextInt((max - min) + 1) + min;
+    }
+
+    public static void testAddRemoveGet() {
+        boolean passed = true;
+
+        ArrayDeque<Integer> ad1 = new ArrayDeque<>();
+        int[] tarry = new int[200];
+
+        for (int i = 0; i < 16; i++) {
+            int randomInt = getRandomNumberInRange(0,100);
+            ad1.addFirst(randomInt);
+            tarry[i] = randomInt;
+        }
+        ad1.printDeque();
+        for (int i = 0; i < 16; i++) {
+            ad1.removeFirst();
+        }
+        passed = passed && checkEmpty(true, ad1.isEmpty());
+        for (int i = 0; i < 16; i ++) {
+            ad1.addFirst(tarry[i]);
+        }
+        passed = passed && checkSize(16, ad1.size());
+        ad1.printDeque();
+
+
+        printTestStatus(passed);
+    }
 
 
     public static void main(String args[]) {
         testAdd();
         testRemove();
         testInitializer();
+        testAddRemoveGet();
     }
 }

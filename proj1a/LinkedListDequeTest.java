@@ -97,8 +97,8 @@ public class LinkedListDequeTest {
 		int c = lld1.removeLast();
 		lld1.printDeque();
         passed = passed && b == 1 && c == 5;
-		LinkedListDeque<Integer> lld2 = new LinkedListDeque<>(lld1);
-		lld2.printDeque();
+//		LinkedListDeque<Integer> lld2 = new LinkedListDeque<>(lld1);
+//		lld2.printDeque();
 		printTestStatus(passed);
 
 	}
