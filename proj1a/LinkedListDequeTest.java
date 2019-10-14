@@ -75,9 +75,15 @@ public class LinkedListDequeTest {
 		// should not be empty 
 		passed = checkEmpty(false, lld1.isEmpty()) && passed;
 
-		lld1.removeFirst();
+		int a = lld1.removeFirst();
+		passed = passed && a == 10;
 		// should be empty 
 		passed = checkEmpty(true, lld1.isEmpty()) && passed;
+
+//		int n1 = lld1.removeFirst();
+//		int n2 = lld1.removeLast();
+        passed = passed && lld1.removeFirst() == null && lld1.removeLast() == null;
+//		passed = passed && n1 == null && n2 == null;
 
 		for(int i = 1; i < 6; i++) {
 			lld1.addLast(i);
@@ -87,10 +93,10 @@ public class LinkedListDequeTest {
 		passed = getTest == 4 && passed;
 
 		lld1.printDeque();
-		lld1.removeFirst();
-		lld1.removeLast();
+		int b = lld1.removeFirst();
+		int c = lld1.removeLast();
 		lld1.printDeque();
-
+        passed = passed && b == 1 && c == 5;
 		LinkedListDeque<Integer> lld2 = new LinkedListDeque<>(lld1);
 		lld2.printDeque();
 		printTestStatus(passed);
