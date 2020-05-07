@@ -24,7 +24,7 @@ public class Point {
      * i.e. there's no square root.
      */
     private static double distance(double x1, double x2, double y1, double y2) {
-        return Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2);
+        return (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
     }
 
     /**

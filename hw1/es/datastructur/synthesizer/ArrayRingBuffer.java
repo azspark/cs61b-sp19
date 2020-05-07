@@ -1,10 +1,6 @@
 package es.datastructur.synthesizer;
-import jdk.jshell.spi.ExecutionControl;
-import org.junit.Test;
 
-import javax.swing.text.html.HTMLDocument;
 import java.util.Iterator;
-import java.util.function.DoubleToIntFunction;
 
 //TODO: Make sure to that this class and all of its methods are public
 //TODO: Make sure to add the override tag for all overridden methods
