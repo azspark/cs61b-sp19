@@ -1,5 +1,6 @@
 package bearmaps.hw4.slidingpuzzle;
 
+import bearmaps.hw4.AStarSolver;
 import bearmaps.hw4.LazySolver;
 import bearmaps.hw4.ShortestPathsSolver;
 import bearmaps.hw4.SolutionPrinter;
@@ -20,19 +21,21 @@ public class DemoRunSeveralPuzzles {
     private static String[] elitePuzzles = {"ElitePuzzle1.txt", "ElitePuzzle2.txt",
         "ElitePuzzle3.txt"};
 
+    private static String root = "/Users/zhuzheng/Course/cs61b/skeleton-sp19/hw4/bearmaps/hw4/input/";
+
     public static void main(String[] args) {
 
-        String[] puzzleFiles = hardPuzzles;
+        String[] puzzleFiles = elitePuzzles;
 
         System.out.println(puzzleFiles.length + " puzzle files being run.");
         for (int i = 0; i < puzzleFiles.length; i += 1) {
-            Board start = Board.readBoard(puzzleFiles[i]);
+            Board start = Board.readBoard(root + puzzleFiles[i]);
             int N = start.size();
             Board goal = Board.solved(N);
 
             BoardGraph spg = new BoardGraph();
             System.out.println(puzzleFiles[i] + ":");
-            ShortestPathsSolver<Board> solver = new LazySolver<>(spg, start, goal, 30);
+            ShortestPathsSolver<Board> solver = new AStarSolver<>(spg, start, goal, 30);
             SolutionPrinter.summarizeOutcome(solver);
         }
 
